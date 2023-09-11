@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-control 'TEMPLATE.config.file' do
+control 'cobbler.config.file' do
   title 'Verify the configuration file'
 
   describe file('/etc/template-formula.conf') do
@@ -26,8 +26,8 @@ control 'TEMPLATE.config.file' do
       should include(
         '"tofs": {"files_switch": ["any/path/can/be/used/here", "id", '\
         '"roles", "osfinger", "os", "os_family"], "source_files": '\
-        '{"TEMPLATE-config-file-file-managed": ["example.tmpl.jinja"], '\
-        '"TEMPLATE-subcomponent-config-file-file-managed": '\
+        '{"cobbler-config-file-file-managed": ["example.tmpl.jinja"], '\
+        '"cobbler-subcomponent-config-file-file-managed": '\
         '["subcomponent-example.tmpl.jinja"]}'
       )
       # rubocop:enable Layout/LineLength

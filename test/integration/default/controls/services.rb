@@ -3,7 +3,7 @@
 # Prepare platform "finger"
 platform_finger = system.platform[:finger].split('.').first.to_s
 
-control 'TEMPLATE.service.running' do
+control 'cobbler.service.running' do
   title 'The service should be installed, enabled and running'
 
   # Override by `platform_finger`

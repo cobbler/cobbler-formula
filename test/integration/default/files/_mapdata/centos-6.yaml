@@ -17,8 +17,8 @@ values:
     - Y:G@os_family
     - Y:G@os
     - Y:G@osfinger
-    - C@TEMPLATE:lookup
-    - C@TEMPLATE
+    - C@cobbler:lookup
+    - C@cobbler
     - Y:G@id
   master: template-master
   pkg:
@@ -27,7 +27,7 @@ values:
   service:
     name: crond
   subcomponent:
-    config: /etc/TEMPLATE-subcomponent-formula.conf
+    config: /etc/cobbler-subcomponent-formula.conf
   tofs:
     files_switch:
     - any/path/can/be/used/here
@@ -37,8 +37,8 @@ values:
     - os
     - os_family
     source_files:
-      TEMPLATE-config-file-file-managed:
+      cobbler-config-file-file-managed:
       - example.tmpl.jinja
-      TEMPLATE-subcomponent-config-file-file-managed:
+      cobbler-subcomponent-config-file-file-managed:
       - subcomponent-example.tmpl.jinja
   winner: pillar

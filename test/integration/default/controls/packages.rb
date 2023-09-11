@@ -3,7 +3,7 @@
 # Prepare platform "finger"
 platform_finger = system.platform[:finger].split('.').first.to_s
 
-control 'TEMPLATE.package.install' do
+control 'cobbler.package.install' do
   title 'The required package should be installed'
 
   # Override by `platform_finger`

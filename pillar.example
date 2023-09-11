@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # vim: ft=yaml
 ---
-TEMPLATE:
+cobbler:
   lookup:
     master: template-master
 
@@ -31,7 +31,7 @@ TEMPLATE:
     # All aspects of path/file resolution are customisable using the options below.
     # This is unnecessary in most cases; there are sensible defaults.
     # Default path: salt://< path_prefix >/< dirs.files >/< dirs.default >
-    # I.e.: salt://TEMPLATE/files/default
+    # I.e.: salt://cobbler/files/default
     # path_prefix: template_alt
     # dirs:
     #   files: files_alt
@@ -39,6 +39,6 @@ TEMPLATE:
     # The entries under `source_files` are prepended to the default source files
     # given for the state
     source_files:
-      TEMPLATE-config-file-file-managed:
+      cobbler-config-file-file-managed:
         - 'example_alt.tmpl'
         - 'example_alt.tmpl.jinja'
