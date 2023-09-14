@@ -116,6 +116,9 @@ docs/*.md
 # Vim
 *.sw?
 
+# Vs-Code
+.vscode
+
 ## Collected when centralising formulas (check and sort)
 # `collectd-formula`
 .pytest_cache/
