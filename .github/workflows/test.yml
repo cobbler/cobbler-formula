@@ -2,7 +2,11 @@
 # vim: ft=yaml
 ---
 name: Test
-on: [pull_request]  # yamllint disable-line rule:truthy
+on:  # yamllint disable-line rule:truthy
+  pull_request: null
+  push:
+    branches:
+      - main
 
 jobs:
   kitchen:
