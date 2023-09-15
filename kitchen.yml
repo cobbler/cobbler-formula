@@ -120,6 +120,8 @@ platforms:
     transport:
       max_ssh_sessions: 1
   - name: amazonlinux-2-master-py3
+    transport:
+      name: docker
     driver:
       image: saltimages/salt-master-py3:amazonlinux-2
   - name: oraclelinux-8-master-py3

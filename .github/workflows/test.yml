@@ -12,18 +12,34 @@ jobs:
         kitchen-suite:
           - default
         salt-version:
+          # See kitchen.yml --> platforms[].name
           - master
+          # - tiamat
+          # - 3004-1
+          # - 3003-4
         os-version:
+          # See kitchen.yml --> platforms[].name
+          # Not all OSes are available for all versions
           - opensuse-tmbl-latest
           - opensuse-leap-153
           - debian-11
+          # - debian10
+          # - debian9
           - ubuntu-2204
+          # - ubuntu2004
+          # - ubuntu1804
           - centos-stream8
+          # - centos-7
           - fedora-36
+          # - fedora35
           - arch-base-latest
           - almalinux-8
           - rockylinux-8
-          - amazonlinux-2
+          # - amazonlinux-2
+          # - oraclelinux-8
+          # - oraclelinux-7
+          # - gentoo-stage3-latest
+          # - gentoo-stage3-systemd
     steps:
       - uses: actions/checkout@v3
       - name: Set up Ruby
