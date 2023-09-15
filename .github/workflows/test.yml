@@ -1,0 +1,53 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+name: Test
+on: [pull_request]  # yamllint disable-line rule:truthy
+
+jobs:
+  kitchen:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        kitchen-suite:
+          - default
+        salt-version:
+          # See kitchen.yml --> platforms[].name
+          - master
+          # - tiamat
+          # - 3004-1
+          # - 3003-4
+        os-version:
+          # See kitchen.yml --> platforms[].name
+          # Not all OSes are available for all versions
+          - opensuse-tmbl-latest
+          - opensuse-leap-153
+          - debian-11
+          # - debian10
+          # - debian9
+          - ubuntu-2204
+          # - ubuntu2004
+          # - ubuntu1804
+          - centos-stream8
+          # - centos-7
+          - fedora-36
+          # - fedora35
+          - arch-base-latest
+          - almalinux-8
+          - rockylinux-8
+          # - amazonlinux-2
+          # - oraclelinux-8
+          # - oraclelinux-7
+          # - gentoo-stage3-latest
+          # - gentoo-stage3-systemd
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1
+          # runs 'bundle install' and caches installed gems automatically:
+          bundler-cache: true
+      # yamllint disable rule:line-length
+      - run: bin/kitchen verify ${{ matrix.kitchen-suite }}-${{ matrix.os-version }}-${{ matrix.salt-version }}-py3
+      # yamllint enable rule:line-length

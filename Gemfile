@@ -17,3 +17,6 @@ gem 'kitchen-docker', git: 'https://gitlab.com/saltstack-formulas/infrastructure
 
 gem 'kitchen-inspec', '>= 2.5.0'
 gem 'kitchen-salt', '>= 0.7.2'
+
+# We need kitchen 3.4.0 or newer due to https://github.com/test-kitchen/test-kitchen/issues/1919
+gem 'test-kitchen', '>=3.4.0'
