@@ -1,5 +1,5 @@
 module.exports = {
-  branch: 'master',
+  branches: 'main',
   repositoryUrl: 'https://github.com/cobbler/cobbler-formula',
   plugins: [
       ['@semantic-release/commit-analyzer', {
