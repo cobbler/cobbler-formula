@@ -135,3 +135,6 @@ top.sls
 # `suricata-formula` -- Platform binaries
 *.rpm
 *.deb
+
+# Node Modules
+node_modules
