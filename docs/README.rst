@@ -5,7 +5,7 @@ cobbler-formula
 
 |img_github| |img_sr| |img_pc|
 
-.. |img_github| image:: https://github.com/cobbler/cobbler-formula/actions/workflows/test.yml/badge.svg?branch=master
+.. |img_github| image:: https://github.com/cobbler/cobbler-formula/actions/workflows/test.yml/badge.svg?branch=main
    :alt: GitHub Actions Test Status
    :scale: 100%
    :target: https://github.com/cobbler/cobbler-formula/actions/workflows/test.yml
