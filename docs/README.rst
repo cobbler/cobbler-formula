@@ -129,28 +129,6 @@ dependency on ``cobbler.service.clean`` via include list.
 This state will remove the cobbler package and has a depency on
 ``cobbler.config.clean`` via include list.
 
-``cobbler.subcomponent``
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-*Meta-state (This is a state that includes other states)*.
-
-This state installs a subcomponent configuration file before
-configuring and starting the cobbler service.
-
-``cobbler.subcomponent.config``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This state will configure the cobbler subcomponent and has a
-dependency on ``cobbler.config`` via include list.
-
-``cobbler.subcomponent.config.clean``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This state will remove the configuration of the cobbler subcomponent
-and reload the cobbler service by a dependency on
-``cobbler.service.running`` via include list and ``watch_in``
-requisite.
-
 Testing
 -------
 

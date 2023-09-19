@@ -10,8 +10,6 @@ values:
   config: '/etc/cobbler'
   service:
     name: cobbler
-  subcomponent:
-    config: '/etc/cobbler-subcomponent-formula.conf'
   # Just here for testing
   added_in_defaults: defaults_value
   winner: defaults
