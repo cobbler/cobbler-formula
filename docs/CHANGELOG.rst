@@ -2,6 +2,27 @@
 Changelog
 =========
 
+`1.1.0 <https://github.com/cobbler/cobbler-formula/compare/v1.0.1...v1.1.0>`_ (2023-11-17)
+----------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **formula:** example pillar (\ `aed0e0c <https://github.com/cobbler/cobbler-formula/commit/aed0e0cba924413f803475d0733fdfa56dbea8d6>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **github:** don't fail fast (\ `548b166 <https://github.com/cobbler/cobbler-formula/commit/548b1667d23a58f63bb1aa172c299c2c3c660e95>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **formula:** define supported operating sytems (\ `0c609a9 <https://github.com/cobbler/cobbler-formula/commit/0c609a979f1934d153afbe4894a764059923f385>`_\ )
+
 `1.0.1 <https://github.com/cobbler/cobbler-formula/compare/v1.0.0...v1.0.1>`_ (2023-11-17)
 ----------------------------------------------------------------------------------------------
 
