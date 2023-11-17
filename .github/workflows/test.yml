@@ -37,14 +37,11 @@ jobs:
           # - centos-7
           - fedora-36
           # - fedora35
-          - arch-base-latest
           - almalinux-8
           - rockylinux-8
           # - amazonlinux-2
           # - oraclelinux-8
           # - oraclelinux-7
-          # - gentoo-stage3-latest
-          # - gentoo-stage3-systemd
     steps:
       - uses: actions/checkout@v3
       - name: Set up Ruby

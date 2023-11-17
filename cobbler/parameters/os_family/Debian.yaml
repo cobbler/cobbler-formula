@@ -11,8 +11,5 @@
 # you can remove this file or provide at least an empty dict, e.g.
 # values: {}
 ---
-values:
-  pkg:
-    name: cobbler-debian
-  config: /etc/cobbler.d/custom.conf
+values: {}
 ...

@@ -2,7 +2,7 @@
 # vim: ft=yaml
 #
 # Set values specific to:
-#   salt['config.get']('osfinger') == CentOS-6.
+#   salt['config.get']('osfinger') == Leap-15.
 #
 # You just need to add the key:values for this `osfinger` that differ
 # from `defaults.yaml`.
@@ -11,8 +11,5 @@
 # you can remove this file or provide at least an empty dict, e.g.
 # values: {}
 ---
-values:
-  pkg:
-    name: cobbler-centos-6
-  config: /etc/cobbler.d/custom-centos-6.conf
+values: {}
 ...
