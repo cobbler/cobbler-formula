@@ -2,7 +2,7 @@
 # vim: ft=yaml
 #
 # Set values specific to:
-#   salt['config.get']('os') == Fedora.
+#   salt['config.get']('os') == Oracle.
 #
 # You just need to add the key:values for this `os` that differ
 # from `defaults.yaml` + `<osarch>.yaml` + `<os_family>.yaml`.

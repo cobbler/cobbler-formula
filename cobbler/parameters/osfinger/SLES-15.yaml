@@ -2,7 +2,7 @@
 # vim: ft=yaml
 #
 # Set values specific to:
-#   salt['config.get']('osfinger') == Ubuntu-18.04.
+#   salt['config.get']('osfinger') == SLES-15.
 #
 # You just need to add the key:values for this `osfinger` that differ
 # from `defaults.yaml`.
@@ -11,6 +11,5 @@
 # you can remove this file or provide at least an empty dict, e.g.
 # values: {}
 ---
-values:
-  config: /etc/cobbler.d/custom-ubuntu-18.04.conf
+values: {}
 ...

@@ -2,17 +2,11 @@
 # vim: ft=yaml
 ---
 cobbler:
-  lookup:
-    master: template-master
-
-  # Using bash package and udev service as an example. This allows us to
-  # test the template formula itself. You should set these parameters to
-  # examples that make sense in the contexto of the formula you're writing.
   pkg:
-    name: bash
+    name: cobbler
   service:
-    name: systemd-journald
-  config: /etc/template-formula.conf
+    name: cobblerd
+  config: /etc/cobbler/settings.yaml
 
   tofs:
     # The files_switch key serves as a selector for alternative
