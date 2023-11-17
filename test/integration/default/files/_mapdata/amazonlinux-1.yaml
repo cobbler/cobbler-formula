@@ -26,8 +26,6 @@ values:
   rootgroup: root
   service:
     name: crond
-  subcomponent:
-    config: /etc/cobbler-subcomponent-formula.conf
   tofs:
     files_switch:
     - any/path/can/be/used/here
@@ -39,6 +37,4 @@ values:
     source_files:
       cobbler-config-file-file-managed:
       - example.tmpl.jinja
-      cobbler-subcomponent-config-file-file-managed:
-      - subcomponent-example.tmpl.jinja
   winner: pillar
