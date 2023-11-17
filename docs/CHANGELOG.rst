@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.0.1 <https://github.com/cobbler/cobbler-formula/compare/v1.0.0...v1.0.1>`_ (2023-11-17)
+----------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* remove unused subcomponent (\ `7e18551 <https://github.com/cobbler/cobbler-formula/commit/7e185518fb29972092b221e2d6322b095d682ff1>`_\ )
+
 1.0.0 (2023-09-15)
 ------------------
 
