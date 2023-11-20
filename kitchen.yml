@@ -14,6 +14,10 @@ provisioner:
   salt_install: none
   require_chef: false
   formula: cobbler
+  dependencies:
+    - name: epel
+      repo: git
+      source: https://github.com/saltstack-formulas/epel-formula.git
   salt_copy_filter:
     - .kitchen
     - .git

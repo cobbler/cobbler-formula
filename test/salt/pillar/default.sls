@@ -8,11 +8,6 @@ cobbler:
     winner: lookup
     added_in_lookup: lookup_value
 
-  # Using bash package and udev service as an example. This allows us to
-  # test the template formula itself. You should set these parameters to
-  # examples that make sense in the contexto of the formula you're writing.
-  pkg:
-    name: bash
   service:
     name: systemd-journald
   config: /etc/template-formula.conf

@@ -22,7 +22,15 @@ values:
     - Y:G@id
   master: template-master
   pkg:
-    name: bash
+    communityrepo:
+      enabled: true
+      version: 3.3.x
+    epel:
+      enabled: false
+    name: cobbler
+    source:
+      enabled: false
+      version: main
   rootgroup: root
   service:
     name: systemd-journald

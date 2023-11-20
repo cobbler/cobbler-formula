@@ -11,5 +11,9 @@
 # you can remove this file or provide at least an empty dict, e.g.
 # values: {}
 ---
-values: {}
+values:
+  pkg:
+    epel:
+      # Reset to false since Cobbler is in Fedora
+      enabled: false
 ...
