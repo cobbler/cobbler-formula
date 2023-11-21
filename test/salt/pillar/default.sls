@@ -8,8 +8,6 @@ cobbler:
     winner: lookup
     added_in_lookup: lookup_value
 
-  service:
-    name: systemd-journald
   config: /etc/template-formula.conf
 
   tofs:
