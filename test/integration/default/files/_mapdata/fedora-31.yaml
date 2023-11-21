@@ -25,7 +25,7 @@ values:
     name: bash
   rootgroup: root
   service:
-    name: systemd-journald
+    name: cobblerd
   tofs:
     files_switch:
     - any/path/can/be/used/here

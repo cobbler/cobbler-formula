@@ -25,7 +25,7 @@ values:
     name: cronie
   rootgroup: root
   service:
-    name: crond
+    name: cobblerd
   tofs:
     files_switch:
     - any/path/can/be/used/here

@@ -20,7 +20,7 @@ values:
   rootgroup: root
   config: '/etc/cobbler'
   service:
-    name: cobbler
+    name: cobblerd
   # Just here for testing
   added_in_defaults: defaults_value
   winner: defaults
