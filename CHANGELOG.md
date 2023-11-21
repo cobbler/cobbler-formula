@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.3.0](https://github.com/cobbler/cobbler-formula/compare/v1.2.0...v1.3.0) (2023-11-21)
+
+
+### Features
+
+* **service:** add cobblerd management ([10f2da8](https://github.com/cobbler/cobbler-formula/commit/10f2da8c6dada2de4106386d11348b78130fa734))
+
 # [1.2.0](https://github.com/cobbler/cobbler-formula/compare/v1.1.0...v1.2.0) (2023-11-21)
 
 
