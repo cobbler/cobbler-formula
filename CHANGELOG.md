@@ -1,5 +1,17 @@
 # Changelog
 
+# [1.2.0](https://github.com/cobbler/cobbler-formula/compare/v1.1.0...v1.2.0) (2023-11-21)
+
+
+### Bug Fixes
+
+* **formula:** fixup description for metadata ([a91a147](https://github.com/cobbler/cobbler-formula/commit/a91a147b1d02f527419ebb33a9a5c6b179da3976))
+
+
+### Features
+
+* **formula:** install Cobbler from OS, community or epel ([630ccad](https://github.com/cobbler/cobbler-formula/commit/630ccad104ae0c25131f81353176648bc5d2c483))
+
 # [1.1.0](https://github.com/cobbler/cobbler-formula/compare/v1.0.1...v1.1.0) (2023-11-17)
 
 
