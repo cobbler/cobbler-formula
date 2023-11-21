@@ -13,7 +13,7 @@ include:
 cobbler-config-file-file-managed:
   file.managed:
     - name: {{ cobbler.config }}
-    - source: {{ files_switch(['example.tmpl'],
+    - source: {{ files_switch(['settings.yaml.jinja'],
                               lookup='cobbler-config-file-file-managed'
                  )
               }}

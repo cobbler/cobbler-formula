@@ -11,5 +11,10 @@
 # you can remove this file or provide at least an empty dict, e.g.
 # values: {}
 ---
-values: {}
+values:
+  dns:
+    bind:
+      location: /etc/bind/db.
+  tftp:
+    location: /var/lib/tftpboot
 ...

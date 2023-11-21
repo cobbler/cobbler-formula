@@ -12,7 +12,12 @@
 # values: {}
 ---
 values:
+  dns:
+    bind:
+      location: /var/named
   pkg:
     epel:
       enabled: true
+  tftp:
+    location: "/var/lib/tftpboot"
 ...
