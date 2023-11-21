@@ -9,6 +9,12 @@
 include:
   - {{ sls_config_clean }}
 
+{%- if pkg.communityrepo.enabled %}
+cobbler-package-clean-repository-removed:
+  pkgrepo.absent:
+    - name: cobbler_community_repo
+{%- endif %}
+
 cobbler-package-clean-pkg-removed:
   pkg.removed:
     - name: {{ cobbler.pkg.name }}

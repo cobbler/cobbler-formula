@@ -5,5 +5,5 @@ version: 1.1.0
 release: 1
 minimum_version: 2019.2
 summary: cobbler formula
-description: Formula to use as a template for other formulas
+description: Formula to use to manage the autoinstallation server Cobbler
 top_level_dir: cobbler

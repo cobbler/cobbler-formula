@@ -3,6 +3,16 @@
 ---
 cobbler:
   pkg:
+    communityrepo:
+      # Enable the community maintained Cobbler repository. You may choose any valid
+      # minor release that is packaged for your operating system.
+      # See: https://build.opensuse.org/project/subprojects/home:cobbler-project
+      enabled: false
+      version: 3.3.x
+    epel:
+      # Install Cobbler on RHEL forks from EPEL. This is mutually exclusive with the
+      # community repositories.
+      enabled: false
     name: cobbler
   service:
     name: cobblerd

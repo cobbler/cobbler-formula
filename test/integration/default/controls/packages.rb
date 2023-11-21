@@ -9,10 +9,12 @@ control 'cobbler.package.install' do
   # Override by `platform_finger`
   package_name =
     case platform_finger
-    when 'centos-6', 'amazonlinux-1'
-      'cronie'
+    when 'centos-8', 'rockylinux-8', 'almalinux-8'
+      'cobbler3.2'
+    when 'centos-9', 'rockylinux-9', 'almalinux-9'
+      'cobbler3.3'
     else
-      'bash'
+      'cobbler'
     end
 
   describe package(package_name) do

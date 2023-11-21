@@ -5,6 +5,17 @@
 ---
 values:
   pkg:
+    source:
+      enabled: false
+      version: "main"
+    communityrepo:
+      # This is mutually exclusive with "epel"!
+      enabled: false
+      # Available: "2.4.x", "2.6.x", "2.8.x", "3.0.x", "3.1.x", "3.2.x", "3.3.x"
+      version: "3.3.x"
+    epel:
+      # This is mutually exclusive with "communityrepo"!
+      enabled: false
     name: cobbler
   rootgroup: root
   config: '/etc/cobbler'
