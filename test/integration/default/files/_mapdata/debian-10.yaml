@@ -22,7 +22,8 @@ values:
     - Y:G@id
   master: template-master
   pkg:
-    name: bash
+    communityrepo:
+      enabled: true
   rootgroup: root
   service:
     name: cobblerd

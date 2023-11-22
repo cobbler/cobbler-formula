@@ -12,7 +12,17 @@
 # values: {}
 ---
 values:
+  bootloaders:
+    ipxe:
+      location: "/usr/lib/ipxe/"
+    shim:
+      location: "/usr/lib/shim/"
+      file: "shim.*\\.efi\\.signed"
+    syslinux:
+      location: "/usr/lib/syslinux/modules/bios/"
   pkg:
     communityrepo:
       enabled: true
+  tftp:
+    location: "/srv/tftp"
 ...
