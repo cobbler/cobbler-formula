@@ -12,13 +12,13 @@ values:
   auto_migrate_settings: false
   bootloaders:
     grub2:
-      mod_location: "/usr/share/grub2"
+      mod_location: "/usr/lib/grub"
     ipxe:
       enabled: false
       location: "/usr/share/ipxe/"
     shim:
-      file: shim\.efi
-      location: "/usr/share/efi/*/"
+      file: "shim[a-zA-Z0-9]*\\.efi"
+      location: "/boot/efi/EFI/*/"
     syslinux:
       location: "/usr/share/syslinux"
       memdisk_location: "/usr/share/syslinux"

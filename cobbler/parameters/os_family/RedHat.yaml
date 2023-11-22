@@ -16,8 +16,8 @@ values:
     grub2:
       mod_location: /usr/lib/grub
     shim:
-      folder: "/boot/efi/EFI/*/"
       file: "shim[a-zA-Z0-9]*\\.efi"
+      location: "/boot/efi/EFI/*/"
   dns:
     bind:
       location: /var/named
