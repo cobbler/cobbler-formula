@@ -6,6 +6,7 @@
 {%- set sls_package_install = tplroot ~ '.package.install' %}
 {%- from tplroot ~ "/map.jinja" import mapdata as cobbler with context %}
 {%- from tplroot ~ "/libtofs.jinja" import files_switch with context %}
+{%- cobbler_version = salt["cmd.run"]("python3 -c 'import configparser; cp = configparser.ConfigParser(); cp.read("/etc/cobbler/version"); print(cp.get("cobbler", "version"))'") %}
 
 include:
   - {{ sls_package_install }}
@@ -13,7 +14,7 @@ include:
 cobbler-config-file-file-managed:
   file.managed:
     - name: {{ cobbler.config }}
-    - source: {{ files_switch(['settings.yaml.jinja'],
+    - source: {{ files_switch([ cobbler_version + '/settings.yaml.jinja'],
                               lookup='cobbler-config-file-file-managed'
                  )
               }}
