@@ -6,7 +6,7 @@
 {%- set sls_package_install = tplroot ~ '.package.install' %}
 {%- from tplroot ~ "/map.jinja" import mapdata as cobbler with context %}
 {%- from tplroot ~ "/libtofs.jinja" import files_switch with context %}
-{%- set cobbler_version = salt["cmd.run"]("python3 -c 'import configparser; cp = configparser.ConfigParser(); cp.read("/etc/cobbler/version"); print(cp.get("cobbler", "version"))'") %}
+{%- set cobbler_version = salt["cmd.run"]("python3 -c \"import configparser; cp = configparser.ConfigParser(); cp.read('/etc/cobbler/version'); print(cp.get('cobbler', 'version'))\"") %}
 
 include:
   - {{ sls_package_install }}
