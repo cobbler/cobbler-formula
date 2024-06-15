@@ -2,15 +2,45 @@
 # AlmaLinux-8
 ---
 values:
-  added_in_defaults: defaults_value
-  added_in_lookup: lookup_value
-  added_in_pillar: pillar_value
   arch: amd64
-  config: /etc/template-formula.conf
+  authentication:
+    module: "configfile"
+    password: "$1$mF86/UHC$WvcIcX2t6crBz2onWxyac."
+  authorization:
+    default_ownership:
+      - "admin"
+    module: "allowall"
+  auto_migrate_settings: false
+  bootloaders:
+    grub2:
+      mod_location: "/usr/lib/grub"
+    ipxe:
+      enabled: false
+      location: "/usr/share/ipxe/"
+    shim:
+      file: "shim[a-zA-Z0-9]*\\.efi"
+      location: "/boot/efi/EFI/*/"
+    syslinux:
+      location: "/usr/share/syslinux"
+      memdisk_location: "/usr/share/syslinux"
+      pxelinux_location: "/usr/share/syslinux"
+  config: /etc/cobbler/settings.yaml
+  default_kernel_options: {}
+  dhcp:
+    module: "isc"
+    v4: true
+    v6: false
+  dns:
+    bind:
+      forward_zones: []
+      location: "/var/named"
+      master: "127.0.0.1"
+      reverse_zones: []
+    enabled: true
+    module: "bind"
   lookup:
-    added_in_lookup: lookup_value
-    master: template-master
-    winner: lookup
+    dhcp:
+      v4: true
   map_jinja:
     sources:
     - Y:G@osarch
@@ -20,7 +50,11 @@ values:
     - C@cobbler:lookup
     - C@cobbler
     - Y:G@id
-  master: template-master
+  menu:
+    enabled: true
+  nextserver:
+    v4: "127.0.0.1"
+    v6: ::1
   pkg:
     communityrepo:
       enabled: false
@@ -31,12 +65,25 @@ values:
     source:
       enabled: false
       version: main
+  power_management:
+    default_type: "ipmilanplus"
   rootgroup: root
+  rsync:
+    enabled: false
+  scm_track:
+    author: "cobbler <cobbler@localhost>"
+    enabled: false
+    mode: "git"
+    push_script: "/bin/true"
+  server: "127.0.0.1"
   service:
     name: cobblerd
+  tftp:
+    enabled: true
+    location: "/var/lib/tftpboot"
+    module: "in_tftpd"
   tofs:
     files_switch:
-    - any/path/can/be/used/here
     - id
     - roles
     - osfinger
@@ -44,5 +91,10 @@ values:
     - os_family
     source_files:
       cobbler-config-file-file-managed:
-      - example.tmpl.jinja
-  winner: pillar
+      - settings.yaml.jinja
+      cobbler-modules-file-file-managed:
+      - 'modules.conf.jinja'
+      cobbler-mongodb-file-file-managed:
+      - 'mongodb.conf.jinja'
+  version: 3.2.2
+  webdir: "/var/www"

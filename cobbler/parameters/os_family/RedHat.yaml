@@ -12,7 +12,18 @@
 # values: {}
 ---
 values:
+  bootloaders:
+    grub2:
+      mod_location: /usr/lib/grub
+    shim:
+      file: "shim[a-zA-Z0-9]*\\.efi"
+      location: "/boot/efi/EFI/*/"
+  dns:
+    bind:
+      location: /var/named
   pkg:
     epel:
       enabled: true
+  tftp:
+    location: "/var/lib/tftpboot"
 ...

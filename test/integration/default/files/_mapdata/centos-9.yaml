@@ -1,0 +1,100 @@
+# yamllint disable rule:indentation rule:line-length
+# CentOS Linux-9
+---
+values:
+  arch: amd64
+  authentication:
+    module: "configfile"
+    password: "$1$mF86/UHC$WvcIcX2t6crBz2onWxyac."
+  authorization:
+    default_ownership:
+      - "admin"
+    module: "allowall"
+  auto_migrate_settings: false
+  bootloaders:
+    grub2:
+      mod_location: "/usr/lib/grub"
+    ipxe:
+      enabled: false
+      location: "/usr/share/ipxe/"
+    shim:
+      file: "shim[a-zA-Z0-9]*\\.efi"
+      location: "/boot/efi/EFI/*/"
+    syslinux:
+      location: "/usr/share/syslinux"
+      memdisk_location: "/usr/share/syslinux"
+      pxelinux_location: "/usr/share/syslinux"
+  config: /etc/cobbler/settings.yaml
+  default_kernel_options: {}
+  dhcp:
+    module: "isc"
+    v4: true
+    v6: false
+  dns:
+    bind:
+      forward_zones: []
+      location: "/var/named"
+      master: "127.0.0.1"
+      reverse_zones: []
+    enabled: true
+    module: "bind"
+  lookup:
+    dhcp:
+      v4: true
+  map_jinja:
+    sources:
+    - Y:G@osarch
+    - Y:G@os_family
+    - Y:G@os
+    - Y:G@osfinger
+    - C@cobbler:lookup
+    - C@cobbler
+    - Y:G@id
+  menu:
+    enabled: true
+  nextserver:
+    v4: "127.0.0.1"
+    v6: ::1
+  pkg:
+    communityrepo:
+      enabled: false
+      version: 3.3.x
+    epel:
+      enabled: true
+    name: cobbler
+    source:
+      enabled: false
+      version: main
+  power_management:
+    default_type: "ipmilanplus"
+  rootgroup: root
+  rsync:
+    enabled: false
+  scm_track:
+    author: "cobbler <cobbler@localhost>"
+    enabled: false
+    mode: "git"
+    push_script: "/bin/true"
+  server: "127.0.0.1"
+  service:
+    name: cobblerd
+  tftp:
+    enabled: true
+    location: "/var/lib/tftpboot"
+    module: "in_tftpd"
+  tofs:
+    files_switch:
+    - id
+    - roles
+    - osfinger
+    - os
+    - os_family
+    source_files:
+      cobbler-config-file-file-managed:
+      - settings.yaml.jinja
+      cobbler-modules-file-file-managed:
+      - 'modules.conf.jinja'
+      cobbler-mongodb-file-file-managed:
+      - 'mongodb.conf.jinja'
+  version: 3.3.4
+  webdir: "/var/www"

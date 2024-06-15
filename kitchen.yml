@@ -100,6 +100,9 @@ platforms:
   - name: centos-stream8-master-py3
     driver:
       image: saltimages/salt-master-py3:centos-stream8
+  - name: centos-stream9-master-py3
+    driver:
+      image: saltimages/salt-master-py3:centos-stream9
   - name: centos-7-master-py3
     driver:
       image: saltimages/salt-master-py3:centos-7

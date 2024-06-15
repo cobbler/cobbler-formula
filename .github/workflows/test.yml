@@ -33,7 +33,8 @@ jobs:
           - ubuntu-2204
           # - ubuntu2004
           # - ubuntu1804
-          - centos-stream8
+          # - centos-stream8
+          - centos-stream9
           # - centos-7
           - fedora-36
           # - fedora35
