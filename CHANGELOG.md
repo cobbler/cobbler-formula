@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.4.0](https://github.com/cobbler/cobbler-formula/compare/v1.3.0...v1.4.0) (2024-06-17)
+
+
+### Features
+
+* **config:** add default configuration files ([76b95f3](https://github.com/cobbler/cobbler-formula/commit/76b95f36990d5ff2b073c790d77e979b8770ff68))
+
 # [1.3.0](https://github.com/cobbler/cobbler-formula/compare/v1.2.0...v1.3.0) (2023-11-21)
 
 

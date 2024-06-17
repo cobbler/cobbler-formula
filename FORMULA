@@ -1,7 +1,7 @@
 name: cobbler
 os: Debian, Ubuntu, Raspbian, RedHat, Fedora, CentOS, Amazon, Oracle, Suse, openSUSE
 os_family: Debian, RedHat, Suse
-version: 1.3.0
+version: 1.4.0
 release: 1
 # This is due to the dict_to_sls_yaml_params filter for the kernel options
 minimum_version: 3005
