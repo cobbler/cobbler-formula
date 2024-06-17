@@ -21,7 +21,6 @@ cobbler:
     # Note: Any value not evaluated by `config.get` will be used literally.
     # This can be used to set custom paths, as many levels deep as required.
     files_switch:
-      - any/path/can/be/used/here
       - id
       - roles
       - osfinger
@@ -43,7 +42,7 @@ cobbler:
     # For testing purposes
     source_files:
       cobbler-config-file-file-managed:
-        - 'example.tmpl.jinja'
+        - 'settings.yaml.jinja'
 
   # Just for testing purposes
   winner: pillar

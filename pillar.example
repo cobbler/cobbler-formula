@@ -2,6 +2,9 @@
 # vim: ft=yaml
 ---
 cobbler:
+  # Set this version to the version you are going to manage. It is going to decide
+  # which template is used for the settings files.
+  version: 3.3.4
   pkg:
     communityrepo:
       # Enable the community maintained Cobbler repository. You may choose any valid
@@ -46,3 +49,7 @@ cobbler:
       cobbler-config-file-file-managed:
         - 'example_alt.tmpl'
         - 'example_alt.tmpl.jinja'
+      cobbler-modules-file-file-managed:
+        - 'modules_alt.conf.jinja'
+      cobbler-mongodb-file-file-managed:
+        - 'mongodb_alt.conf.jinja'

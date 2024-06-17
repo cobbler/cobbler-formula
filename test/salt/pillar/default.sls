@@ -2,13 +2,12 @@
 # vim: ft=yaml
 ---
 cobbler:
+  # Lookup dictionary
   lookup:
-    master: template-master
-    # Just for testing purposes
-    winner: lookup
-    added_in_lookup: lookup_value
-
-  config: /etc/template-formula.conf
+    dhcp:
+      v4: true
+  dns:
+    enabled: true
 
   tofs:
     # The files_switch key serves as a selector for alternative
@@ -17,7 +16,6 @@ cobbler:
     # Note: Any value not evaluated by `config.get` will be used literally.
     # This can be used to set custom paths, as many levels deep as required.
     files_switch:
-      - any/path/can/be/used/here
       - id
       - roles
       - osfinger
@@ -41,8 +39,8 @@ cobbler:
     # For testing purposes
     source_files:
       cobbler-config-file-file-managed:
-        - 'example.tmpl.jinja'
-
-  # Just for testing purposes
-  winner: pillar
-  added_in_pillar: pillar_value
+        - 'settings.yaml.jinja'
+      cobbler-modules-file-file-managed:
+        - 'modules.conf.jinja'
+      cobbler-mongodb-file-file-managed:
+        - 'mongodb.conf.jinja'

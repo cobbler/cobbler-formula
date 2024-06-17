@@ -4,6 +4,7 @@
 # Set default values.
 ---
 values:
+  version: 3.3.4
   pkg:
     source:
       enabled: false
@@ -17,11 +18,64 @@ values:
       # This is mutually exclusive with "communityrepo"!
       enabled: false
     name: cobbler
-  rootgroup: root
-  config: '/etc/cobbler'
   service:
     name: cobblerd
-  # Just here for testing
-  added_in_defaults: defaults_value
-  winner: defaults
-...
+  rootgroup: root
+  auto_migrate_settings: false
+  server: "127.0.0.1"
+  menu:
+    enabled: true
+  default_kernel_options: {}
+  authentication:
+    module: "configfile"
+    # This password is for the default login to newly
+    # setup machines, not Cobbler itself.
+    password: "$1$mF86/UHC$WvcIcX2t6crBz2onWxyac."
+  authorization:
+    module: "allowall"
+    default_ownership:
+      - "admin"
+  bootloaders:
+    syslinux:
+      location: "/usr/share/syslinux"
+      memdisk_location: "/usr/share/syslinux"
+      pxelinux_location: "/usr/share/syslinux"
+    grub2:
+      mod_location: "/usr/share/grub2"
+    shim:
+      location: "/usr/share/efi/*/"
+      # This is YAML as such we need a double backslash to get a single one.
+      file: "shim\\.efi"
+    ipxe:
+      enabled: false
+      location: /usr/share/ipxe/
+  dhcp:
+    v4: false
+    v6: false
+    module: "isc"
+  dns:
+    enabled: false
+    module: "bind"
+    bind:
+      location: /var/lib/named
+      master: "127.0.0.1"
+      forward_zones: []
+      reverse_zones: []
+  tftp:
+    enabled: true
+    module: "in_tftpd"
+    location: "/srv/tftpboot"
+  nextserver:
+    v4: "127.0.0.1"
+    v6: "::1"
+  rsync:
+    enabled: false
+  power_management:
+    default_type: "ipmilanplus"
+  scm_track:
+    enabled: false
+    mode: "git"
+    author: "cobbler <cobbler@localhost>"
+    push_script: "/bin/true"
+  config: /etc/cobbler/settings.yaml
+  webdir: /var/www

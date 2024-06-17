@@ -37,4 +37,8 @@ values:
     source_files:
       cobbler-config-file-file-managed:
       - example.tmpl.jinja
+      cobbler-modules-file-file-managed:
+      - 'modules.conf.jinja'
+      cobbler-mongodb-file-file-managed:
+      - 'mongodb.conf.jinja'
   winner: pillar

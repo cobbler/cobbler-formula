@@ -1,0 +1,20 @@
+# Cobbler module configuration file
+# Documentation: https://cobbler.readthedocs.io/en/latest/cobbler-conf.html#modules-conf
+
+# THIS FILE IS MANAGED BY SALTSTACK!
+
+[authentication]
+module = authentication.{{ cobbler['authentication']['module'] }}
+hash_algorithm = sha3_512
+
+[authorization]
+module = authorization.{{ cobbler['authorization']['module'] }}
+
+[dns]
+module = managers.{{ cobbler['dns']['module'] }}
+
+[dhcp]
+module = managers.{{ cobbler['dhcp']['module'] }}
+
+[tftpd]
+module = managers.{{ cobbler['tftp']['module'] }}
