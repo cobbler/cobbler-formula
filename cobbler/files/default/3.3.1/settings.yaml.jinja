@@ -179,7 +179,7 @@ manage_forward_zones:
   - {{ zone|yaml_encode }}
 {% endfor -%}
 {% endif %}
-{% if not cobbler['dns']['bind']['forward_zones'] -%}
+{% if not cobbler['dns']['bind']['reverse_zones'] -%}
 manage_reverse_zones: []
 {% else -%}
 manage_reverse_zones:
@@ -206,7 +206,7 @@ scm_track_enabled: {{ cobbler['scm_track']['enabled']|yaml_encode }}
 scm_track_mode: {{ cobbler['scm_track']['mode']|yaml_dquote }}
 scm_track_author: {{ cobbler['scm_track']['author']|yaml_dquote }}
 scm_push_script: {{ cobbler['scm_track']['push_script']|yaml_dquote }}
-server: {{ cobbler['server'] }}
+server: {{ cobbler['server']|yaml_dquote }}
 client_use_localhost: false
 client_use_https: false
 virt_auto_boot: true
