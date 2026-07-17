@@ -14,16 +14,23 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        # https://github.com/actions/checkout
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744
         with:
           fetch-depth: 0
-      - uses: wagoid/commitlint-github-action@v1
+      - name: Lint commit messages
+        # https://github.com/wagoid/commitlint-github-action
+        uses: wagoid/commitlint-github-action@a85daedc64529d02d566e7f83c3c48c77e78af85
   rubocop:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        # https://github.com/actions/checkout
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744
       - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+        # https://github.com/ruby/setup-ruby
+        uses: ruby/setup-ruby@003a5c4d8d6321bd302e38f6f0ec593f77f06600
         with:
           ruby-version: 3.1
           # runs 'bundle install' and caches installed gems automatically:
@@ -33,6 +40,12 @@ jobs:
   pre-commit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v3
-      - uses: pre-commit/action@v3.0.0
+      - name: Checkout repository
+        # https://github.com/actions/checkout
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744
+      - name: Set up Python
+        # https://github.com/actions/setup-python
+        uses: actions/setup-python@3542bca2639a428e1796aaa6a2ffef0c0f575566
+      - name: Run pre-commit
+        # https://github.com/pre-commit/action
+        uses: pre-commit/action@646c83fcd040023954eafda54b4db0192ce70507
