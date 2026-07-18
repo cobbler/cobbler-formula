@@ -22,7 +22,7 @@ jobs:
       - name: Lint commit messages
         # https://github.com/wagoid/commitlint-github-action
         # yamllint disable-line rule:line-length
-        uses: wagoid/commitlint-github-action@a85daedc64529d02d566e7f83c3c48c77e78af85  # v1.8.0
+        uses: wagoid/commitlint-github-action@b948419dd99f3fd78a6548d48f94e3df7f6bf3ed  # v6.2.1
   rubocop:
     runs-on: ubuntu-latest
     steps:
