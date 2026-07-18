@@ -2,6 +2,51 @@
 Changelog
 =========
 
+`1.4.1 <https://github.com/cobbler/cobbler-formula/compare/v1.4.0...v1.4.1>`_ (2026-07-18)
+----------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **kitchen:** require "time" after Bundler setup, not via RUBYOPT (\ `a557344 <https://github.com/cobbler/cobbler-formula/commit/a55734477211f53c9f734fd0f45581dcbf1d5571>`_\ )
+* **package:** refresh Cobbler 3.3.x community repository OS support (\ `162c786 <https://github.com/cobbler/cobbler-formula/commit/162c786f133699bd4e490036e5bc31ae5fd71327>`_\ )
+* **parameters:** correct EPEL package name for AlmaLinux/Rocky Linux 9 (\ `e45772e <https://github.com/cobbler/cobbler-formula/commit/e45772e8f8ab2382e8ad89a2d264c3041965d597>`_\ )
+
+Build System
+^^^^^^^^^^^^
+
+
+* **deps:** bump actions/checkout from 3.6.0 to 7.0.0 (\ `edec0db <https://github.com/cobbler/cobbler-formula/commit/edec0dba1582190c2b3aa0f505bf87f697d848d1>`_\ )
+* **deps:** bump actions/setup-node from 3.9.1 to 7.0.0 (\ `d7b039e <https://github.com/cobbler/cobbler-formula/commit/d7b039e0e23fe7a00451cf1d58765749ff8eb5d9>`_\ )
+* **deps:** bump actions/setup-python from 3.1.4 to 6.3.0 (\ `0bee066 <https://github.com/cobbler/cobbler-formula/commit/0bee0662b8207c535066478b2963942eae152426>`_\ )
+* **deps:** bump wagoid/commitlint-github-action from 1.8.0 to 6.2.1 (\ `623e9ca <https://github.com/cobbler/cobbler-formula/commit/623e9cacc825a0eb28902827c53f587eaedbc45b>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* add version comments and add dependabot (\ `933f384 <https://github.com/cobbler/cobbler-formula/commit/933f38474213d5e28113c830166571235360c931>`_\ )
+* **lint:** pin setup-python to 3.11 to fix rstcheck build (\ `8c1fd2b <https://github.com/cobbler/cobbler-formula/commit/8c1fd2b95f411dbe2e6e7dbf642056c9d6538976>`_\ )
+* pin GitHub Actions to commit SHAs (\ `e8417ba <https://github.com/cobbler/cobbler-formula/commit/e8417bae06fed2fa02616ad40e6dd7bbfb0050f2>`_\ )
+* replace pre-commit/action with pinned inline steps (\ `8c3fc56 <https://github.com/cobbler/cobbler-formula/commit/8c3fc56d3e053192a64f355018deab256a5eda36>`_\ )
+* **test:** disable RPM-based platforms in CI, see `#17 <https://github.com/cobbler/cobbler-formula/issues/17>`_ (\ `1f57e7b <https://github.com/cobbler/cobbler-formula/commit/1f57e7b1ebaadcb83552a81ecb89c06c273c87bd>`_\ )
+
+Documentation
+^^^^^^^^^^^^^
+
+
+* **tofs:** make repeated "design guidelines" link anonymous (\ `ad4bd75 <https://github.com/cobbler/cobbler-formula/commit/ad4bd75dec661eebfdcfe2b45f8564b635f15dcd>`_\ )
+
+Tests
+^^^^^
+
+
+* add _mapdata fixtures for newly active kitchen platforms (\ `6aa1e4b <https://github.com/cobbler/cobbler-formula/commit/6aa1e4bc003e11642db2c29a2dc1bb085377175f>`_\ )
+* **kitchen:** lower SSH ready timeout from 10m to 3m (\ `b47bd31 <https://github.com/cobbler/cobbler-formula/commit/b47bd312c2123a9e3d2b0a08419a75d99b53715e>`_\ )
+* **kitchen:** work around opensuse-tumbleweed dependency conflict (\ `ae7f39d <https://github.com/cobbler/cobbler-formula/commit/ae7f39d83ee715ee888e1ecef5439d4f6f221da2>`_\ )
+* update testmatrix for kitchen (\ `42e6ad6 <https://github.com/cobbler/cobbler-formula/commit/42e6ad604f42ab20f23631da749e8d4e8b811dc3>`_\ )
+
 `1.4.0 <https://github.com/cobbler/cobbler-formula/compare/v1.3.0...v1.4.0>`_ (2024-06-17)
 ----------------------------------------------------------------------------------------------
 
