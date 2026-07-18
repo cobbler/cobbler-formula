@@ -8,6 +8,12 @@ driver:
   privileged: true
   run_command: /usr/lib/systemd/systemd
 
+transport:
+  # Default is 600s (10 minutes): too long to sit on a CI job that's stuck
+  # retrying a connection that will never succeed (e.g. SSH being rejected
+  # outright rather than merely slow to come up). Fail fast instead.
+  max_wait_until_ready: 180
+
 provisioner:
   name: salt_solo
   log_level: debug
