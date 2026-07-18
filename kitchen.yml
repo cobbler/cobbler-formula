@@ -67,6 +67,21 @@ platforms:
     # => SCP did not finish successfully (255):  (Net::SCP::Error)
     transport:
       max_ssh_sessions: 1
+    # Workaround for the `salt-master-py3:opensuse-tumbleweed-latest` image lagging
+    # behind the current Tumbleweed snapshot: this causes partial-upgrade dependency
+    # conflicts (e.g. `cobbler` requiring a `fence-agents` build that the stale
+    # `perl-Error` can't satisfy). Sync to the current snapshot before Salt installs
+    # packages. The current snapshot's /etc/os-release comments out `VERSION=` (only
+    # `VERSION_ID=` is active), which breaks this project's pinned InSpec/Train fork's
+    # SUSE detection (it reads `VERSION`, not `VERSION_ID`) and crashes
+    # `bin/kitchen verify`; restore an uncommented `VERSION=` line so InSpec can still
+    # detect the platform.
+    lifecycle:
+      pre_converge:
+        - remote: >-
+            sudo sh -c "zypper --non-interactive ref && zypper --non-interactive dup &&
+            (grep -q '^VERSION=' /etc/os-release || sed -i 's/^# VERSION=/VERSION=/'
+            /etc/os-release)"
   - name: amazonlinux-2023-master
     driver:
       image: saltimages/salt-master-py3:amazonlinux-2023
