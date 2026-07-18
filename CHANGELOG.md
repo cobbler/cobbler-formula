@@ -1,5 +1,24 @@
 # Changelog
 
+# [1.5.0](https://github.com/cobbler/cobbler-formula/compare/v1.4.1...v1.5.0) (2026-07-18)
+
+
+### Bug Fixes
+
+* **config:** server and manage_reverse_zones issues ([1eb780c](https://github.com/cobbler/cobbler-formula/commit/1eb780c26fcfc773bf04b993a82c8442e316b51b))
+
+
+### Build System
+
+* prevent auto-conversion of AGENTS.md ([14b8c94](https://github.com/cobbler/cobbler-formula/commit/14b8c947c6eb9c8f5a643ee90637538f769107fc))
+
+
+### Features
+
+* **config:** add 3.3.5 default files ([6b280e7](https://github.com/cobbler/cobbler-formula/commit/6b280e73da7918075f90e8cfa6f6012c83f20b81))
+* **config:** add 3.3.6 default files ([4832ca1](https://github.com/cobbler/cobbler-formula/commit/4832ca1479840a3f67726954979679f6f2a6c9a6))
+* **config:** add 3.3.7 default files ([a2be666](https://github.com/cobbler/cobbler-formula/commit/a2be6665f8a0e11024f2a60342a58c1e0d62c48c))
+
 ## [1.4.1](https://github.com/cobbler/cobbler-formula/compare/v1.4.0...v1.4.1) (2026-07-18)
 
 
