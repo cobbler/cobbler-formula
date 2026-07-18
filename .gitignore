@@ -138,3 +138,9 @@ top.sls
 
 # Node Modules
 node_modules
+
+# Codacy AI Instructions
+.github/instructions/codacy.instructions.md
+
+# rbenv local Ruby version
+.ruby-version
