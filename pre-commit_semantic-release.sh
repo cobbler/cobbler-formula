@@ -13,10 +13,10 @@ sed -i -e "s_^\(version:\).*_\1 ${1}_" FORMULA
 # Install `m2r2`
 pip3 install m2r2
 
-# Copy and then convert the `.md` docs
-cp ./*.md docs/
+# Copy and then convert the `CHANGELOG.md` doc
+cp ./CHANGELOG.md docs/
 cd docs/ || exit
-m2r2 --overwrite ./*.md
+m2r2 --overwrite ./CHANGELOG.md
 
 # Change excess `H1` headings to `H2` in converted `CHANGELOG.rst`
 sed -i -e '/^=.*$/s/=/-/g' CHANGELOG.rst
