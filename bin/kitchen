@@ -29,4 +29,11 @@ end
 require 'rubygems'
 require 'bundler/setup'
 
+# test-kitchen 4.1.0's logger calls Time#iso8601 without requiring the stdlib
+# extension that defines it. Load it here, after Bundler has activated gems
+# per Gemfile.lock, so it reuses the resolved `date` version instead of
+# activating whatever `date` ships as a default gem with this Ruby install
+# (which can be older than the Gemfile.lock's pin and conflict with it).
+require 'time'
+
 load Gem.bin_path('test-kitchen', 'kitchen')
