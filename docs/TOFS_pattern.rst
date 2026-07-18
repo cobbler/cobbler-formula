@@ -48,7 +48,7 @@ On the reusability of SaltStack state files
 
 There is a brilliant initiative of the SaltStack community called `salt-formulas <https://github.com/saltstack-formulas>`_. Their goal is to provide state files, pillar examples and configuration templates ready to be used for provisioning. I am a contributor for two small ones: `zabbix-formula <https://github.com/saltstack-formulas/zabbix-formula>`_ and `varnish-formula <https://github.com/saltstack-formulas/varnish-formula>`_.
 
-The `design guidelines <http://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html>`_ for formulas are clear in many aspects and it is a recommended reading for anyone willing to write state files, even non-formulaic ones.
+The `design guidelines <http://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html>`__ for formulas are clear in many aspects and it is a recommended reading for anyone willing to write state files, even non-formulaic ones.
 
 In the next section, I am going to describe my proposal to extend further the reusability of formulas, suggesting some patterns of usage.
 
@@ -62,7 +62,7 @@ The customization of a formula should be done mainly by providing pillar data us
 Example: NTP before applying TOFS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Let's work with the NTP example. A basic formula that follows the `design guidelines <http://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html>`_ has the following files and directories tree:
+Let's work with the NTP example. A basic formula that follows the `design guidelines <http://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html>`__ has the following files and directories tree:
 
 .. code-block:: console
 

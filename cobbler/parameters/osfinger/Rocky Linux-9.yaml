@@ -13,5 +13,5 @@
 ---
 values:
   pkg:
-    name: cobbler3.3
+    name: cobbler
 ...

@@ -47,6 +47,12 @@ jobs:
       - name: Set up Python
         # https://github.com/actions/setup-python
         uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1  # v6.3.0
+        with:
+          # The `rstcheck` pre-commit hook (myint/rstcheck@3f929574) ships a legacy
+          # distutils-style setup.py that reads `ast.Constant.s`, an attribute removed
+          # in Python 3.12+; pin to the last 3.11.x release so its build environment
+          # keeps installing.
+          python-version: "3.11"
       - name: Install pre-commit
         run: python -m pip install pre-commit
       - name: Cache pre-commit environments
