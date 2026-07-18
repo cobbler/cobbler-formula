@@ -29,11 +29,17 @@ jobs:
           - ubuntu-2404
           # - ubuntu-2204
           # - ubuntu-2004
-          - centos-stream9
-          - fedora-40
-          - almalinux-9
+          # RPM-based platforms reject every SSH login on this runner with
+          # PAM_AUTHINFO_UNAVAIL (pam_unix's account check can't retrieve
+          # shadow info via unix_chkpwd), but work fine locally with the
+          # identical image/config - a GitHub Actions runner environment
+          # issue, not a formula bug. Disabled until root-caused; see
+          # https://github.com/cobbler/cobbler-formula/issues/17
+          # - centos-stream9
+          # - fedora-40
+          # - almalinux-9
           # - almalinux-8
-          - rockylinux-9
+          # - rockylinux-9
           # - rockylinux-8
           # - amazonlinux-2023
           # - oraclelinux-9
