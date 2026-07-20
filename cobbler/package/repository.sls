@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # vim: ft=sls
 
-# Cobbler 3.4.x - https://build.opensuse.org/project/show/systemsmanagement:cobbler:release34
+# Cobbler 4.0.x - https://build.opensuse.org/project/show/systemsmanagement:cobbler:release40
 # Cobbler 3.3.x - https://build.opensuse.org/project/show/systemsmanagement:cobbler:release33
 # Cobbler 3.2.x - https://build.opensuse.org/project/show/systemsmanagement:cobbler:release32
 # Cobbler 3.1.x - https://build.opensuse.org/project/show/systemsmanagement:cobbler:release31
@@ -14,7 +14,7 @@
 {%- set tplroot = tpldir.split('/')[0] %}
 {%- from tplroot ~ "/map.jinja" import mapdata as cobbler with context %}
 {%- set repo_version = {
-  "3.4.x": "release34",
+  "4.0.x": "release40",
   "3.3.x": "release33",
   "3.2.x": "release32",
   "3.1.x": "release31",
@@ -24,7 +24,17 @@
   "2.4.x": "release24",
 }.get(cobbler.pkg.communityrepo.version) %}
 {%- set repo_os_name = {
-  "3.4.x": {},
+  "4.0.x": {
+    "openSUSE Tumbleweed": {
+      "": "openSUSE_Tumbleweed"
+    },
+    "Leap": {
+      "16.0": "16.0",
+    },
+    "Debian": {
+      "13": "Debian_13",
+    },
+  },
   "3.3.x": {
     "openSUSE Tumbleweed": {
       "": "openSUSE_Tumbleweed"
