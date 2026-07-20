@@ -2,6 +2,21 @@
 Changelog
 =========
 
+`1.5.1 <https://github.com/cobbler/cobbler-formula/compare/v1.5.0...v1.5.1>`_ (2026-07-20)
+----------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **kitchen:** make /etc/shadow world-readable to unblock unix_chkpwd (\ `e15c4f2 <https://github.com/cobbler/cobbler-formula/commit/e15c4f263dc3853d8bd4bc82448af8fa640954a8>`_\ ), closes `#17 <https://github.com/cobbler/cobbler-formula/issues/17>`_
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **test:** re-enable RPM-based platforms to test /etc/shadow chmod fix (\ `3c8a7d9 <https://github.com/cobbler/cobbler-formula/commit/3c8a7d91af03a27beefe646271832e9dc88672e7>`_\ ), closes `#17 <https://github.com/cobbler/cobbler-formula/issues/17>`_
+
 `1.5.0 <https://github.com/cobbler/cobbler-formula/compare/v1.4.1...v1.5.0>`_ (2026-07-18)
 ----------------------------------------------------------------------------------------------
 
