@@ -56,9 +56,23 @@ platforms:
   - name: centos-stream9-master
     driver:
       image: saltimages/salt-master-py3:centos-stream9
+      # Workaround: on GitHub Actions runners, sshd's PAM account phase
+      # rejects every login with PAM_AUTHINFO_UNAVAIL because the
+      # setuid-root `unix_chkpwd` helper (which `pam_unix.so` shells out
+      # to) can't read /etc/shadow there, even though root itself can
+      # read it fine via `docker exec`. This matches a known Moby/Docker
+      # container-runtime issue, not anything wrong with the image/PAM
+      # config: https://github.com/moby/moby/issues/48734. Make the file
+      # world-readable before systemd starts sshd to route around it.
+      # Affects every RPM-based platform below.
+      # yamllint disable-line rule:line-length
+      run_command: bash -c "chmod +r /etc/shadow; exec /usr/lib/systemd/systemd"
   - name: fedora-40-master
     driver:
       image: saltimages/salt-master-py3:fedora-40
+      # Workaround: see the centos-stream9-master entry above.
+      # yamllint disable-line rule:line-length
+      run_command: bash -c "chmod +r /etc/shadow; exec /usr/lib/systemd/systemd"
   - name: opensuse-leap-155-master
     driver:
       image: saltimages/salt-master-py3:opensuse-leap-15.5
@@ -91,24 +105,45 @@ platforms:
   - name: amazonlinux-2023-master
     driver:
       image: saltimages/salt-master-py3:amazonlinux-2023
+      # Workaround: see the centos-stream9-master entry above.
+      # yamllint disable-line rule:line-length
+      run_command: bash -c "chmod +r /etc/shadow; exec /usr/lib/systemd/systemd"
   - name: oraclelinux-9-master
     driver:
       image: saltimages/salt-master-py3:oraclelinux-9
+      # Workaround: see the centos-stream9-master entry above.
+      # yamllint disable-line rule:line-length
+      run_command: bash -c "chmod +r /etc/shadow; exec /usr/lib/systemd/systemd"
   - name: oraclelinux-8-master
     driver:
       image: saltimages/salt-master-py3:oraclelinux-8
+      # Workaround: see the centos-stream9-master entry above.
+      # yamllint disable-line rule:line-length
+      run_command: bash -c "chmod +r /etc/shadow; exec /usr/lib/systemd/systemd"
   - name: almalinux-9-master
     driver:
       image: saltimages/salt-master-py3:almalinux-9
+      # Workaround: see the centos-stream9-master entry above.
+      # yamllint disable-line rule:line-length
+      run_command: bash -c "chmod +r /etc/shadow; exec /usr/lib/systemd/systemd"
   - name: almalinux-8-master
     driver:
       image: saltimages/salt-master-py3:almalinux-8
+      # Workaround: see the centos-stream9-master entry above.
+      # yamllint disable-line rule:line-length
+      run_command: bash -c "chmod +r /etc/shadow; exec /usr/lib/systemd/systemd"
   - name: rockylinux-9-master
     driver:
       image: saltimages/salt-master-py3:rockylinux-9
+      # Workaround: see the centos-stream9-master entry above.
+      # yamllint disable-line rule:line-length
+      run_command: bash -c "chmod +r /etc/shadow; exec /usr/lib/systemd/systemd"
   - name: rockylinux-8-master
     driver:
       image: saltimages/salt-master-py3:rockylinux-8
+      # Workaround: see the centos-stream9-master entry above.
+      # yamllint disable-line rule:line-length
+      run_command: bash -c "chmod +r /etc/shadow; exec /usr/lib/systemd/systemd"
 
 verifier:
   # https://www.inspec.io/
