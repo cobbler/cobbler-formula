@@ -33,13 +33,15 @@ jobs:
           # PAM_AUTHINFO_UNAVAIL (pam_unix's account check can't retrieve
           # shadow info via unix_chkpwd), but work fine locally with the
           # identical image/config - a GitHub Actions runner environment
-          # issue, not a formula bug. Disabled until root-caused; see
+          # issue, not a formula bug; see
           # https://github.com/cobbler/cobbler-formula/issues/17
-          # - centos-stream9
-          # - fedora-40
-          # - almalinux-9
+          # Re-enabled to test whether making /etc/shadow world-readable
+          # unblocks unix_chkpwd on the runner.
+          - centos-stream9
+          - fedora-40
+          - almalinux-9
           # - almalinux-8
-          # - rockylinux-9
+          - rockylinux-9
           # - rockylinux-8
           # - amazonlinux-2023
           # - oraclelinux-9
