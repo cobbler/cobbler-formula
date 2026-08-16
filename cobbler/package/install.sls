@@ -5,6 +5,9 @@
 {%- set tplroot = tpldir.split('/')[0] %}
 {%- from tplroot ~ "/map.jinja" import mapdata as cobbler with context %}
 {%- set sls_repo_available = tplroot ~ '.package.repository' %}
+{#- The "<pkg.name>-<webserver>" sub-package split (e.g. "cobbler-apache2") only
+   exists from Cobbler 4.0.0 onwards; earlier versions don't have it. #}
+{%- set webserver_pkg_supported = salt['pkg.version_cmp'](cobbler.version, '4.0.0') >= 0 %}
 {%- if cobbler.pkg.epel.enabled %}
 include:
   - epel
@@ -20,6 +23,11 @@ cobbler-package-install-pkg-enable-dnf-module:
 cobbler-package-install-pkg-installed:
   pkg.installed:
     - name: {{ cobbler.pkg.name }}
+    - pkgs:
+      - {{ cobbler.pkg.name }}
+      {%- if cobbler.pkg.webserver and webserver_pkg_supported %}
+      - {{ cobbler.pkg.name }}-{{ cobbler.pkg.webserver }}
+      {%- endif %}
     {%- if cobbler.pkg.communityrepo.enabled %}
     - require:
       - sls: {{ sls_repo_available }}

@@ -65,6 +65,7 @@ values:
     source:
       enabled: false
       version: main
+    webserver: apache2
   power_management:
     default_type: ipmilanplus
   rootgroup: root
