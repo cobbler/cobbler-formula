@@ -15,7 +15,9 @@ control 'cobbler.config.file' do
     its('content') { should include 'manage_dns: true' }
     # Added in defaults
     its('content') { should include 'manage_tftpd: true' }
-    # Lookup value
-    its('content') { should include 'manage_dhcp: true' }
+    # Lookup value. "manage_dhcp" itself is 3.3.x-only (a virtual "v4 or v6"
+    # combination, dropped entirely in 4.0.0); "manage_dhcp_v4" renders
+    # identically from the same pillar value in both major versions.
+    its('content') { should include 'manage_dhcp_v4: true' }
   end
 end
