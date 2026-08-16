@@ -164,3 +164,29 @@ suites:
     verifier:
       inspec_tests:
         - path: test/integration/default
+  # Only openSUSE Tumbleweed and Debian 13 are supported by the "4.0.x"
+  # community repository (see `cobbler/package/repository.sls`). No
+  # `saltimages/salt-master-py3:debian-13` image exists yet, so this suite
+  # is restricted to openSUSE Tumbleweed until one is available.
+  - name: communityrepo-4-0-x
+    includes:
+      - opensuse-tmbl-latest-master
+    provisioner:
+      pillars_from_directories:
+        - test/salt/pillar
+        - test/salt/pillar-communityrepo-4-0-x
+      state_top:
+        base:
+          '*':
+            - cobbler._mapdata
+            - cobbler
+    verifier:
+      inspec_tests:
+        - path: test/integration/default
+      # `cobbler._mapdata` is excluded: it does an exact-match comparison
+      # against a fixture file that assumes the default communityrepo
+      # pillar (disabled, version 3.3.x), which this suite overrides.
+      controls:
+        - cobbler.package.install
+        - cobbler.config.file
+        - cobbler.service.running
