@@ -26,10 +26,8 @@
 {%- set repo_os_name = {
   "3.4.x": {},
   "3.3.x": {
-    "openSUSE Tumbleweed": {
-      "": "openSUSE_Tumbleweed"
-    },
-    "Leap": {
+    "openSUSE Tumbleweed": "openSUSE_Tumbleweed",
+    "openSUSE Leap": {
       "15.3": "15.3",
       "15.4": "15.4",
       "15.5": "15.5",
@@ -62,7 +60,7 @@
     },
   },
   "3.2.x": {
-    "Leap": {
+    "openSUSE Leap": {
       "15.2": "Leap_15.2",
     },
     "SLES": {
@@ -92,10 +90,22 @@
   "2.6.x": {},
   "2.4.x": {},
 } %}
-{%- set repo_os_releases = repo_os_name.get(cobbler.pkg.communityrepo.version).get(grains["os"]) %}
+{#- Salt normalizes the `os` grain to the generic "SUSE" for every SUSE-family distro
+   (Tumbleweed, Leap, SLES alike); the distro-specific name (e.g. "openSUSE Tumbleweed",
+   "openSUSE Leap", "SLES") is only available via `osfullname` there. RedHat/Debian-family
+   distros don't have this normalization, so `os` already carries the specific name. #}
+{%- set repo_os_lookup_key = grains["osfullname"] if grains["os_family"] == "Suse" else grains["os"] %}
+{%- set repo_os_releases = repo_os_name.get(cobbler.pkg.communityrepo.version).get(repo_os_lookup_key) %}
+{#- Rolling-release distros (currently only openSUSE Tumbleweed) have no meaningful
+   `osrelease` to key on -- it's a daily snapshot date, not a stable version -- so their
+   entry above is a plain string used as-is. Versioned distros key a dict by `osrelease`. #}
+{%- if repo_os_releases is mapping %}
+  {%- set repo_os_name_lookup = repo_os_releases.get(grains["osrelease"]) %}
+{%- else %}
+  {%- set repo_os_name_lookup = repo_os_releases %}
+{%- endif %}
 {%- if cobbler.pkg.communityrepo.enabled %}
-{%- if repo_os_releases is not none and repo_os_releases.get(grains["osrelease"]) is not none %}
-{%- set repo_os_name_lookup = repo_os_releases.get(grains["osrelease"]) %}
+{%- if repo_os_name_lookup is not none %}
 cobbler-package-install-repo-available:
   pkgrepo.managed:
     {%- if grains["os_family"] == "Debian" %}
@@ -109,7 +119,7 @@ cobbler-package-install-repo-available:
     - gpgautoimport: true
     - humanname: Cobbler Community OBS repository
     {%- if grains["os_family"] in ("RedHat", "Suse") %}
-    - baseurl: https://download.opensuse.org/repositories/systemsmanagement:/cobbler:{{ repo_version }}/{{ repo_os_name_lookup }}/
+    - baseurl: https://download.opensuse.org/repositories/systemsmanagement:/cobbler:/{{ repo_version }}/{{ repo_os_name_lookup }}/
     {%- endif %}
 {%- else %}
 cobbler-package-install-repo-unavailable:
@@ -130,6 +140,6 @@ cobbler-package-install-repo-unavailable:
         #                                                                              #
         ################################################################################
         Please include the following information in the issue:
-            {{ cobbler.pkg.communityrepo.version }}/{{ grains["os"] }}/{{ grains["osrelease"] }}
+            {{ cobbler.pkg.communityrepo.version }}/{{ repo_os_lookup_key }}/{{ grains["osrelease"] }}
 {%- endif %}
 {%- endif %}

@@ -4,7 +4,7 @@
 # Set default values.
 ---
 values:
-  version: 3.3.4
+  version: 3.3.7
   pkg:
     source:
       enabled: false
