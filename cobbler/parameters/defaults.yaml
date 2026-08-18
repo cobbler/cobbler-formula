@@ -12,12 +12,20 @@ values:
     communityrepo:
       # This is mutually exclusive with "epel"!
       enabled: false
-      # Available: "2.4.x", "2.6.x", "2.8.x", "3.0.x", "3.1.x", "3.2.x", "3.3.x"
+      # Available: "2.4.x", "2.6.x", "2.8.x", "3.0.x", "3.1.x", "3.2.x",
+      # "3.3.x", "4.0.x"
       version: "3.3.x"
     epel:
       # This is mutually exclusive with "communityrepo"!
       enabled: false
     name: cobbler
+    # Installs "<pkg.name>-<webserver>" alongside "<pkg.name>" (e.g. "cobbler-apache2"),
+    # pulling in a real web server package so directories cobblerd expects to exist
+    # (e.g. "webdir") actually get created. Set to "nginx" to install "cobbler-nginx"
+    # instead, or to false/"" to skip installing a web server sub-package entirely.
+    # Only takes effect for Cobbler 4.0.0 or later; earlier versions don't split the
+    # web server integration into its own sub-package.
+    webserver: "apache2"
   service:
     name: cobblerd
   rootgroup: root

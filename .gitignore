@@ -131,6 +131,7 @@ tmp/
 .vagrant
 top.sls
 !test/salt/pillar/top.sls
+!test/salt/pillar-communityrepo-4-0-x/top.sls
 
 # `suricata-formula` -- Platform binaries
 *.rpm

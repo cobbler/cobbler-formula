@@ -46,6 +46,17 @@ jobs:
           # - amazonlinux-2023
           # - oraclelinux-9
           # - oraclelinux-8
+        # Only openSUSE Tumbleweed and Debian 13 are supported by the "4.0.x"
+        # community repository (see `cobbler/package/repository.sls`); no
+        # `saltimages/salt-master-py3:debian-13` image exists yet, so this
+        # suite is only defined (kitchen.yml `includes:`) for Tumbleweed.
+        # Added here via `include:` instead of the `kitchen-suite` axis above
+        # to avoid the full cross-product trying nonexistent instances (e.g.
+        # `communityrepo-4-0-x-debian-12-master`).
+        include:
+          - kitchen-suite: communityrepo-4-0-x
+            salt-version: master
+            os-version: opensuse-tmbl-latest
     steps:
       - name: Checkout repository
         # https://github.com/actions/checkout
