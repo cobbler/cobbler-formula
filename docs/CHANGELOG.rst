@@ -2,6 +2,38 @@
 Changelog
 =========
 
+`1.6.0 <https://github.com/cobbler/cobbler-formula/compare/v1.5.2...v1.6.0>`_ (2026-08-18)
+----------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **package:** install a web server sub-package by default on 4.0.0+ (\ `ca84f9d <https://github.com/cobbler/cobbler-formula/commit/ca84f9d93158bbaf353a589c2f85de3aa3bce055>`_\ )
+* **test:** check manage_dhcp_v4 instead of manage_dhcp (\ `cffd550 <https://github.com/cobbler/cobbler-formula/commit/cffd55096762a71d60ff72fdb8b0257907ee5adb>`_\ )
+
+Build System
+^^^^^^^^^^^^
+
+
+* **commitlint:** ignore dependabot commit messages (\ `75dd235 <https://github.com/cobbler/cobbler-formula/commit/75dd23568532b9aa4c79b5fa980b820ac3e92c4f>`_\ )
+* **deps:** bump actions/checkout from 7.0.0 to 7.0.1 (\ `94210e4 <https://github.com/cobbler/cobbler-formula/commit/94210e42d37736bf56e07d77099af4dc1747d67a>`_\ )
+* **deps:** bump actions/setup-python from 6.3.0 to 7.0.0 (\ `f90d9a3 <https://github.com/cobbler/cobbler-formula/commit/f90d9a31afa46509b0af025fd311b30b308e17e0>`_\ )
+* **deps:** bump ruby/setup-ruby from 1.319.0 to 1.321.0 (\ `c74738d <https://github.com/cobbler/cobbler-formula/commit/c74738dceb15e59b1001423732d22c0fb3b6c576>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **config:** add 4.0.0 default files (\ `51575ea <https://github.com/cobbler/cobbler-formula/commit/51575ea110a6fa9a74627cbe4527c9fec3eb3fdf>`_\ )
+* **package:** add 4.0.x community repository support (\ `97639ee <https://github.com/cobbler/cobbler-formula/commit/97639ee164667bacc36e2cb17c01c69f45d69372>`_\ )
+
+Tests
+^^^^^
+
+
+* add communityrepo-4-0-x kitchen suite (\ `ff56460 <https://github.com/cobbler/cobbler-formula/commit/ff56460a521ec97e045e53089f237fdae0b74a9d>`_\ )
+
 `1.5.2 <https://github.com/cobbler/cobbler-formula/compare/v1.5.1...v1.5.2>`_ (2026-08-18)
 ----------------------------------------------------------------------------------------------
 
