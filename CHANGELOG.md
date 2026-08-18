@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.5.2](https://github.com/cobbler/cobbler-formula/compare/v1.5.1...v1.5.2) (2026-08-18)
+
+
+### Bug Fixes
+
+* **config:** bump default Cobbler version to 3.3.7 ([d445bee](https://github.com/cobbler/cobbler-formula/commit/d445bee41ccfbfa36a513ac731e947413b4d8c25))
+* **package:** fix community repo unavailable on every SUSE-family target ([7700898](https://github.com/cobbler/cobbler-formula/commit/7700898848025895efbd8c4642af13ba17bc3d0a))
+
 ## [1.5.1](https://github.com/cobbler/cobbler-formula/compare/v1.5.0...v1.5.1) (2026-07-20)
 
 
